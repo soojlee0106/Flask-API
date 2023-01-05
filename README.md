@@ -26,7 +26,7 @@ python manage.py migrate
 python manage.py makemigrations
 ```
 
-## Running Server
+## Running Server (Backend)
 
 ```sh
 python manage.py runserver
@@ -36,4 +36,20 @@ python manage.py runserver
 
 ```sh
 http://127.0.0.1:8000/admin/login/?next=/admin/
+```
+
+## API
+
+```sh
+http://localhost:8000/api/
+```
+
+```sh
+http://localhost:8000/api/tasks/
+```
+
+## Running frontend (React)
+
+```sh
+npm start
 ```
