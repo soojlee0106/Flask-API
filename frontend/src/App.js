@@ -1,7 +1,6 @@
-
 // import Component from the react module
 import React, { Component } from "react";
-import Modal from "./Components/Modal";
+import Modal from "./components/Modal";
 import axios from 'axios';
 
 // create a class that extends the component
@@ -35,7 +34,7 @@ class App extends Component {
 
 
   refreshList = () => {
-    axios   //Axios to send and receive HTTP requests
+    axios //Axios to send and receive HTTP requests
       .get("http://localhost:8000/api/tasks/")
       .then(res => this.setState({ taskList: res.data }))
       .catch(err => console.log(err));
@@ -111,14 +110,11 @@ class App extends Component {
     //add this after modal creation
     this.setState({ modal: !this.state.modal });
   };
-  handleSubmit = (item) => {
-    this.toggle();
-    alert("save" + JSON.stringify(item));
-  };
 
   // Submit an item
   handleSubmit = (item) => {
     this.toggle();
+    alert("save" + JSON.stringify(item));
     if (item.id) {
       // if old post to edit and submit
       axios
@@ -134,12 +130,10 @@ class App extends Component {
 
   // Delete item
   handleDelete = (item) => {
+    alert("delete" + JSON.stringify(item));
     axios
       .delete(`http://localhost:8000/api/tasks/${item.id}/`)
       .then((res) => this.refreshList());
-  };
-  handleDelete = (item) => {
-    alert("delete" + JSON.stringify(item));
   };
 
   // Create item
