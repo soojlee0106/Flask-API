@@ -19,11 +19,8 @@ Run venv
 ## Migration
 
 ```sh
-python manage.py migrate
-```
-
-```sh
 python manage.py makemigrations
+python manage.py migrate
 ```
 
 ## Running Server (Backend)

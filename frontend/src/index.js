@@ -1,16 +1,12 @@
-
-import React from "react";
-import ReactDOM from "react-dom";
-import "./index.css";
-import App from "./App";
-
-// importing css stylesheet to use the bootstrap class
-// add this line only in this file
-import "bootstrap/dist/css/bootstrap.min.css";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './App';
+import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById("root")
+  <App />,
+  document.getElementById('root')
 );
+
+//React generated comments ignored
+reportWebVitals();
