@@ -1,6 +1,6 @@
-# Django Todo
+# Django Experiment
 
-Simple task manager made with Django and React
+Python Django with Rest API, combined with React frontend.
 
 ## Local development
 
