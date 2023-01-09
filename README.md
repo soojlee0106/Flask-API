@@ -1,4 +1,4 @@
-# Django Experiment
+# Django ML
 
 Python Django with Rest API, combined with React frontend.
 
