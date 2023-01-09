@@ -36,12 +36,6 @@ Use pgAdmin to maintain DB.
 python manage.py runserver
 ```
 
-## Admin management
-
-```sh
-http://127.0.0.1:8000/admin/login/?next=/admin/
-```
-
 ## API
 
 ```sh
@@ -50,6 +44,20 @@ http://localhost:8000/api/
 
 ```sh
 http://localhost:8000/api/tasks/
+```
+
+## Checking API with Postman
+
+Download Postman for Desktop.  
+Send "GET" request, and enter query in JSON format.  
+
+```sh
+{
+ "sepal length (cm)": 6.5,
+ "sepal width (cm)":3,
+ "petal length (cm)":2,
+ "petal width (cm)":1
+}
 ```
 
 ## Running frontend (React)
