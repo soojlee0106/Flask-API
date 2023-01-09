@@ -23,6 +23,13 @@ python manage.py makemigrations
 python manage.py migrate
 ```
 
+## Database
+
+Download PostgreSQL  
+<https://www.postgresql.org/download/>  
+The database name is predictiondb.  
+Use pgAdmin to maintain DB.  
+
 ## Running Server (Backend)
 
 ```sh
