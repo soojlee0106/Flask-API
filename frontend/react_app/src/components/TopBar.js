@@ -7,7 +7,7 @@ import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 
-export default function ButtonAppBar() {
+export default function ButtonAppBar(props) {
     return (
         <Box sx={{ flexGrow: 1 }}>
             <AppBar position="static">
@@ -24,7 +24,7 @@ export default function ButtonAppBar() {
                     <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
                         Iris Predictor
                     </Typography>
-                    <Button color="inherit">Login</Button>
+                    {props.isAuthenticated ? <Button color="inherit" onClick={() => props.logout()}>Logout</Button> : null}
                 </Toolbar>
             </AppBar>
         </Box>
