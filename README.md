@@ -1,7 +1,7 @@
-# Django ML
+# Flask Mobile Backend
 
-Python Django with Rest API, combined with React frontend.  
-Django version must be 3.2 for authorization (This is a temporary fix)  
+Python Flask with API.  
+This is the backend for Android frontend.
 
 ## Local development
 
@@ -17,65 +17,16 @@ Run venv
 .\env\Scripts\activate.ps1
 ```
 
-## Migration
+## Checking API
 
-```sh
-python manage.py makemigrations
-python manage.py migrate
-```
-
-## Database
-
-Download PostgreSQL  
-<https://www.postgresql.org/download/>  
-The database name is predictiondb.  
-Use pgAdmin to maintain DB.  
-
-## Running Server (Backend)
-
-```sh
-python manage.py runserver
-```
-
-## Checking API with Postman
-
-Download Postman for Desktop.  
-Send "GET" request, and enter query in JSON format.  
-
-Query for prediction <http://127.0.0.1:8000/api/predict/>
+Download Postman Desktop.  
+The method is POST <http://127.0.0.1:5000/predict>.  
+Enter in body as form-data (key, value).
 
 ```sh
 {
- "sepal length (cm)": 6.5,
- "sepal width (cm)":3,
- "petal length (cm)":2,
- "petal width (cm)":1
+    "cgpa": 5.97,
+    "iq": 106,
+    "profile_score": 61
 }
-```
-
-Query for login <http://127.0.0.1:8000/api/auth/login/>
-
-```sh
-{
- "username": "sample_user",
- "password": "sample_password"
-}
-```
-
-Query for logout <http://127.0.0.1:8000/api/auth/logout/>  
-Enter key: "Authorization", value: "token"  
-
-Query for new password <http://127.0.0.1:8000/api/auth/update_password/>
-Enter Authorization header  
-Enter new_password1, new_password2
-
-## Authorization (PostgreSQL)
-
-Check the schema under predictiondb.  
-The tables related to all login are located there.  
-
-## Running frontend (React)
-
-```sh
-npm start
 ```
