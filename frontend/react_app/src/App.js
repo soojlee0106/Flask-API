@@ -1,12 +1,13 @@
-
 import React from 'react';
 import Urls from './Urls';
-
+import Layout from './components/Layout';
 
 function App() {
   return (
     <div className="App">
-      <Urls />
+      <Layout>
+        <Urls />
+      </Layout>
     </div>
   );
 }
