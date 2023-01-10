@@ -9,17 +9,37 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
+import { connect } from 'react-redux';
+import * as actions from '../store/authActions';
+import { useNavigate, useLocation } from "react-router-dom";
+
 const theme = createTheme();
 
-export default function SignIn() {
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        const data = new FormData(event.currentTarget);
-        console.log({
-            email: data.get('email'),
-            password: data.get('password'),
-        });
+function Login(props) {
+    const [username, setuserName] = React.useState(null);
+    const [password, setPassword] = React.useState(null);
+
+    let history = useNavigate();
+    let location = useLocation();
+    let { from } = location.state || { from: { pathname: "/" } };
+
+    React.useEffect(() => {
+        if (props.isAuthenticated) { history.replace(from) };
+    });
+
+    const handleFormFieldChange = (event) => {
+        switch (event.target.id) {
+            case 'username': setuserName(event.target.value); break;
+            case 'password': setPassword(event.target.value); break;
+            default: return null;
+        }
+
     };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        props.onAuth(username, password);
+    }
 
     return (
         <ThemeProvider theme={theme}>
@@ -41,14 +61,16 @@ export default function SignIn() {
                     </Typography>
                     <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
                         <TextField
+                            variant="outlined"
                             margin="normal"
                             required
                             fullWidth
-                            id="email"
-                            label="Email Address"
-                            name="email"
-                            autoComplete="email"
+                            id="username"
+                            label="User Name"
+                            name="username"
+                            autoComplete="username"
                             autoFocus
+                            onChange={handleFormFieldChange}
                         />
                         <TextField
                             margin="normal"
@@ -59,6 +81,7 @@ export default function SignIn() {
                             type="password"
                             id="password"
                             autoComplete="current-password"
+                            onChange={handleFormFieldChange}
                         />
                         <Button
                             type="submit"
@@ -74,3 +97,11 @@ export default function SignIn() {
         </ThemeProvider>
     );
 }
+
+const mapDispatchToProps = dispatch => {
+    return {
+        onAuth: (username, password) => dispatch(actions.authLogin(username, password))
+    }
+}
+
+export default connect(null, mapDispatchToProps)(Login);
