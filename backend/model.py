@@ -5,7 +5,7 @@ from sklearn.model_selection import train_test_split
 import numpy as np
 import pandas as pd
 
-df = pd.read_csv('backend\students_placement.csv')
+df = pd.read_csv('students_placement.csv')
 
 X = df.drop(columns=['placed'])
 y = df['placed']
@@ -18,4 +18,4 @@ rf.fit(X_train, y_train)
 y_pred = rf.predict(X_test)
 
 # save the model in pickle format
-pickle.dump(rf, open('backend\model.pkl', 'wb'))
+pickle.dump(rf, open('model.pkl', 'wb'))
